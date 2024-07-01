@@ -9,7 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 def preprocess():
-    df = pd.read_excel('./data/Telco_customer_churn.xlsx')
+    df = pd.read_excel('./airflow-pipeline-setup/data/Telco_customer_churn.xlsx')
 
     df = df[df['Total Charges'] != " "].reset_index(drop=True)
     df['Total Charges'] = df['Total Charges'].astype(float)
@@ -30,12 +30,12 @@ def preprocess():
     df = df[['Tenure Months', 'Tech Support', 'Internet Service', 'Payment Method', 'Contract', 'Total Charges', 'Churn Value']]
     df_no_test = df_no_test[['Tenure Months', 'Tech Support', 'Internet Service', 'Payment Method', 'Contract', 'Total Charges', 'Churn Value']] 
 
-    df.to_csv('./data/trainval.csv')
-    df_no_test.to_csv('./data/bench_no.csv')
+    df.to_csv('./airflow-pipeline-setup/data/trainval.csv')
+    df_no_test.to_csv('./airflow-pipeline-setup/data/bench_no.csv')
 
 def train():
-    trainval = pd.read_csv('./data/trainval.csv')
-    bench_no = pd.read_csv('./data/bench_no.csv')
+    trainval = pd.read_csv('./airflow-pipeline-setup/data/trainval.csv')
+    bench_no = pd.read_csv('./airflow-pipeline-setup/data/bench_no.csv')
 
     y_bench_no = bench_no['Churn Value']
     X_bench_no = bench_no.drop('Churn Value', axis=1)
