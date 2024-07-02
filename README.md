@@ -63,3 +63,8 @@ This repository contains the necessary setup for running an Apache Airflow pipel
 
 Once the webserver is up and running, you can access the Airflow UI by navigating to `http://localhost:8080` in your web browser.
 
+## Report- 
+
+Here is the report containing more details about the EDA, preprocessing and modelling of the data- 
+https://docs.google.com/document/d/14RkQ5BxkZd8mSx4UTS-IWGjwaRG7CqwJz71wUUqZ62g/edit#heading=h.e2in7lzhugur
+
